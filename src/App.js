@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ImageGrid from "./components/ImageGrid";
+import ShowImage from "./components/ShowImage";
+import Title from "./components/Title";
+import UpLoadImg from "./components/UpLoadImg";
 
-function App() {
+const App = () => {
+  const [clicked, setClicked] = useState(null);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Title />
+      <UpLoadImg />
+      <ImageGrid setClicked={setClicked} />
+      {clicked && <ShowImage clicked={clicked} setClicked={setClicked} />}
     </div>
   );
-}
+};
 
 export default App;
